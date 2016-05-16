@@ -4,6 +4,7 @@ import ConfigParser
 
 
 class MyIni(object):
+    def __init__(self, confpath = 'my_ini.conf'):
         self.cf = ConfigParser.ConfigParser()
         self.cf.read(confpath)
 
