@@ -45,6 +45,8 @@ class BKCPAlarm(object):
         """发送短信"""
         try:
             self.sms.sms_send(content, mobiles)
+	    logger.info(content)
+	    logger.info(mobiles)
         except Exception as e:
             logger.error(e)
         
