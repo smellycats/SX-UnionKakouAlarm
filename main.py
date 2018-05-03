@@ -93,6 +93,9 @@ class BKCPAlarm(object):
             if info == {}:
                 self.id_flag += 1
                 return
+            if arrow.now('PRC') > arrow.get(info['stop_time']).to('Asia/Shanghai').replace(hours=-8):
+                self.id_flag += 1
+                return
             if arrow.now('PRC') < arrow.get(info['pass_time']).to('Asia/Shanghai').replace(hours=-8, minutes=15):
                 # 卡口地点信息
                 crossing_info = self.kakou.get_traffic_crossing_info({'crossing_index':info['crossing_id']})
